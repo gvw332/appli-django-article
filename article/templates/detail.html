@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} {{ article.titre }} {% endblock %}
+
+{% block content %}
+<div class="article-container">
+    <h1>{{ article.titre }}</h1>
+    <p>{{ article.contenu }}</p>
+
+    <em>
+        Auteur(s) :
+        {% for auteur in article.auteur.all %}
+            {{ auteur.prenom }} {{ auteur.nom }}
+            {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </em>
+
+    <form action="{% url 'supprimer_article' article.id %}">
+        <button type="submit">Supprimer l'article</button>
+    </form>
+</div>
+{% endblock %}

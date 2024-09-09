@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Détails de l'article{% endblock %}
+
+{% block content %}
+    <h1>{{ article.titre }}</h1>
+    {% if article.image %}
+        <img src="{{ article.image.url }}" alt="{{ article.titre }}" class="article-image"/>
+    {% endif %}
+    <p>Auteur(s) :
+        {% for auteur in article.auteur.all %}
+            {{ auteur.prenom }} {{ auteur.nom }}
+            {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+    <p>Date de publication : {{ article.date_publication }}</p>
+    <p>{{ article.contenu }}</p>  <!-- Assurez-vous que le modèle Article a un champ 'contenu' -->
+{% endblock %}

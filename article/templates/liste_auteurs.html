@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} Liste auteur {% endblock %}
+
+{% block content %}
+<h1 class="test">Liste des Auteurs</h1>
+<ul class="auteur-list">
+    {% for auteur in auteurs %}
+        <li class="auteur-item">
+            <span class="auteur-name">{{ auteur.prenom }} {{ auteur.nom }}</span>
+            <a href="{% url 'supprimer_auteur' auteur.id %}" class="auteur-delete">Supprimer</a>
+        </li>
+    {% endfor %}
+</ul>
+<div class="button-container">
+    <button class="add-auteur-btn">
+        <a href="{% url 'creer_auteur' %}">Ajouter un Auteur</a>
+    </button>
+</div>
+{% endblock %}

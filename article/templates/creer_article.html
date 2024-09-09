@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Créer article {% endblock %}
+
+{% block content %}
+<h1>Créer un nouvel article</h1>
+<form method="POST">
+    {% csrf_token %}
+    <div>
+        <div>
+            <label for="id_titre">Titre:</label>
+            {{ form.titre }}
+        </div>
+        <div>
+            <label for="id_contenu">Contenu:</label>
+            {{ form.contenu }}
+        </div>
+        <div>
+            <label for="id_date_publication">Date de publication:</label>
+            {{ form.date_publication }}
+        </div>
+        <div>
+            <label for="id_auteur">Auteur:</label>
+            {{ form.auteur }}
+        </div>
+        <!-- Ajoutez d'autres champs de formulaire ici si nécessaire -->
+    </div>
+    <button type="submit">Soumettre</button>
+</form>
+{% endblock %}

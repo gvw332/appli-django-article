@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Créer auteur {% endblock %}
+
+{% block content %}
+<div class="create-author-container">
+    <h1>Créer un Auteur</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="form-field">
+                <label for="id_prenom">Prénom:</label>
+                {{ form.prenom }}
+            </div>
+            <div class="form-field">
+                <label for="id_nom">Nom:</label>
+                {{ form.nom }}
+            </div>
+            <!-- Ajoutez d'autres champs de formulaire ici si nécessaire -->
+        </div>
+        <button type="submit" class="create-btn">Créer</button>
+    </form>
+</div>
+{% endblock %}
+
+
+
+

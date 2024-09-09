@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %} Accueil {% endblock %}
+{% load static %} 
+{% block content %}
+    
+    <h1 class="test">TechnoFuturTic</h1>         
+    
+    <div class="image-accueil">
+        <a href="{% url 'liste' %}"><img src="{% static 'images/image-accueil.png' %}" alt="image_accueil"></a>
+    </div>
+{% endblock %}
